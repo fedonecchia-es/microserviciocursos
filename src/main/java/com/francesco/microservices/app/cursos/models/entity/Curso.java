@@ -1,7 +1,6 @@
 package com.francesco.microservices.app.cursos.models.entity;
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 @Entity
@@ -14,6 +13,8 @@ public class Curso {
     private String descripcion;
     private String url;
     private String thumbnail;
+    private Float valoracion;
+    private Integer numero_votos;
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "fecha_creacion")
     private Date fechaCreacion;
@@ -22,7 +23,19 @@ public class Curso {
         this.fechaCreacion = new Date();
     }
 
+    public Float getValoracion() {
+        return valoracion;
+    }
 
+    public void setValoracion(Float valoracion) {
+        this.valoracion = valoracion;
+        this.numero_votos = 1;
+    }
+
+    //actualizar valoracion mediante voto
+    public void addVoto(Integer voto) {
+        this.valoracion = (this.valoracion*this.numero_votos++ + voto)/this.numero_votos;
+    }
 
     public String getTitulo() {
         return titulo;

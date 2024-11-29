@@ -22,6 +22,18 @@ public class ServicioImplCurso implements ServicioCurso {
 
     @Override
     @Transactional(readOnly = true)
+    public Iterable<Curso> sortByValoracion() {
+        return repositorioCurso.findFirst5ByOrderByValoracionDesc();
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Iterable<Curso> sortByFecha() {
+        return repositorioCurso.findFirst5ByOrderByFechaCreacionDesc();
+    }
+
+    @Override
+    @Transactional(readOnly = true)
     public Optional<Curso> findById(Long id) {
         return repositorioCurso.findById(id);
     }
