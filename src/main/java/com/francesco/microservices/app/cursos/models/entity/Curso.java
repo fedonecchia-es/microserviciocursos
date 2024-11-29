@@ -1,5 +1,7 @@
 package com.francesco.microservices.app.cursos.models.entity;
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
 import java.util.Date;
 
 @Entity
@@ -21,13 +23,6 @@ public class Curso {
     }
 
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getTitulo() {
         return titulo;
@@ -61,11 +56,4 @@ public class Curso {
         this.thumbnail = thumbnail;
     }
 
-    public Date getFechaCreacion() {
-        return fechaCreacion;
-    }
-
-    public void setFechaCreacion(Date fechaCreacion) {
-        this.fechaCreacion = fechaCreacion;
-    }
 }
